@@ -1,0 +1,148 @@
+/* Container */
+.cover-container {
+  position: relative;
+  display: flex;
+  flex-direction: column; /* Stack vertically for responsiveness */
+  justify-content: flex-start;
+  align-items: flex-start; /* Left align content */
+  min-height: 100vh;
+  background: #000;
+  overflow: hidden;
+  padding: 40px 16px; /* Responsive horizontal padding */
+  box-sizing: border-box;
+}
+
+/* Gradient Glows */
+.glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.3;
+}
+
+.glow-green {
+  top: -80px;
+  left: 30%;
+  width: 300px;
+  height: 300px;
+  background: #00ffcc;
+}
+
+.glow-purple {
+  bottom: -100px;
+  right: 20%;
+  width: 300px;
+  height: 300px;
+  background: #9b5de5;
+}
+
+/* Grid only on top-left */
+
+/* ...existing code... */
+.grid-top-left {
+  position: absolute;
+  top: 60px;
+  left: 100px;
+  width: 400px;
+  height: 350px;
+
+  /* Grid lines without intersection dot */
+  background-image:
+    repeating-linear-gradient(to right, rgba(255,255,255,0.3) 0 5px, transparent 5px 40px),
+    repeating-linear-gradient(to bottom, rgba(255,255,255,0.3) 0 5px, transparent 5px 40px);
+  background-blend-mode: lighten;
+
+  /* Fade edges (no circle) */
+  -webkit-mask-image: 
+    linear-gradient(to right, transparent, black 10%, black 90%, transparent),
+    linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-composite: intersect;
+  mask-image: 
+    linear-gradient(to right, transparent, black 10%, black 90%, transparent),
+    linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+  mask-composite: intersect;
+
+  opacity: 0.4;
+  z-index: 1;
+}
+/* ...existing code... */
+
+
+
+/* Content */
+.cover-content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  max-width: 700px;
+  width: 100%;
+  padding-left: 100px;
+  text-align: left; /* Left align text */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Left align children */
+}
+
+/* Assignment Tag */
+.assignment-tag {
+  display: inline-block;
+  background: #f9b233;
+  color: #000;
+  font-family: monospace;
+  font-size: 20px;
+  padding: 8px 20px;
+  border-radius: 6px;
+  margin-bottom: 15px; /* Less margin for mobile */
+  margin-top: 20px;
+  width: auto;
+  height: auto;
+  box-shadow: 5px 5px 0px rgba(255, 255, 255, 0.2);
+  align-self: flex-start; /* Stick to left */
+}
+
+/* Title */
+.cover-title {
+ font-size: 90px;
+ font-weight: 700;
+}
+
+@media (max-width: 480px) {
+  .cover-title {
+    font-size: 50px;
+  }
+
+  .cover-content {
+    padding-left: 0; /* Remove left padding on small screens */
+  }
+}
+
+@media (min-width: 768px) {
+  .cover-title {
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cover-title {
+    font-size: 90px;
+  }
+}
+
+/* Company Info */
+.company-info {
+  margin-top: 32px;
+  font-family: monospace;
+  color: #ccc;
+  text-align: left;
+}
+
+.company-info .label {
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin-bottom: 6px;
+}
+
+.company-info .company-name {
+  font-size: 14px;
+}
